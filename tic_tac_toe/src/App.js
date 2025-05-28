@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import TicTacToe from './TicTacToe';
 
 function App() {
   return (
@@ -14,20 +15,10 @@ function App() {
           </div>
         </div>
       </nav>
-
       <main>
-        <div className="container">
-          <div className="hero">
-            <div className="subtitle">AI Workflow Manager Template</div>
-            
-            <h1 className="title">tic_tac_toe</h1>
-            
-            <div className="description">
-              Start building your application.
-            </div>
-            
-            <button className="btn btn-large">Button</button>
-          </div>
+        {/* Center TicTacToe board */}
+        <div className="container" style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', minHeight: 'calc(100vh - 75px)' }}>
+          <TicTacToe />
         </div>
       </main>
     </div>
