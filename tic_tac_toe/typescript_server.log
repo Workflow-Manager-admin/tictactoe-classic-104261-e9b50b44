@@ -26,3 +26,11 @@ ERROR in ./src/App.js 6:0-36
 Module not found: Error: Can't resolve './TicTacToe' in '/home/kavia/workspace/code-generation/tictactoe-classic-104261-e9b50b44/tic_tac_toe/src'
 
 webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './TicTacToe' in '/home/kavia/workspace/code-generation/tictactoe-classic-104261-e9b50b44/tic_tac_toe/src'
+ERROR in ./src/App.js 6:0-36
+Module not found: Error: Can't resolve './TicTacToe' in '/home/kavia/workspace/code-generation/tictactoe-classic-104261-e9b50b44/tic_tac_toe/src'
+
+webpack compiled with 1 error
