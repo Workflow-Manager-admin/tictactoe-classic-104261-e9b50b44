@@ -10,18 +10,16 @@ import React, { useState } from "react";
  *  - Centered 3x3 clickable grid
  *  - Uses provided color scheme and light styling
  */
-const TicTacToe: React.FC = () => {
+const TicTacToe = () => {
   // The board is a flat array of 9: 'X', 'O', or null
-  const [board, setBoard] = useState<(string | null)[]>(Array(9).fill(null));
+  const [board, setBoard] = useState(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(true); // true = X's turn, false = O's
-  const [gameStatus, setGameStatus] = useState<"playing" | "won" | "draw">(
-    "playing"
-  );
-  const [winner, setWinner] = useState<string | null>(null);
+  const [gameStatus, setGameStatus] = useState("playing");
+  const [winner, setWinner] = useState(null);
 
   // Returns "X", "O", or null if no winner
   // PUBLIC_INTERFACE
-  function calculateWinner(currentBoard: (string | null)[]): string | null {
+  function calculateWinner(currentBoard) {
     /** Returns 'X' or 'O' if won, null if no winner yet */
     const lines = [
       [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
@@ -42,7 +40,7 @@ const TicTacToe: React.FC = () => {
   }
 
   // PUBLIC_INTERFACE
-  function handleCellClick(index: number): void {
+  function handleCellClick(index) {
     /** Handles user clicks on a cell */
     if (board[index] || gameStatus !== "playing") {
       return; // cell isn't empty or the game is over
@@ -65,7 +63,7 @@ const TicTacToe: React.FC = () => {
   }
 
   // PUBLIC_INTERFACE
-  function handleReset(): void {
+  function handleReset() {
     /** Resets board state and status */
     setBoard(Array(9).fill(null));
     setIsXNext(true);
@@ -74,7 +72,7 @@ const TicTacToe: React.FC = () => {
   }
 
   // PUBLIC_INTERFACE
-  function getStatusMessage(): string {
+  function getStatusMessage() {
     /** Returns displayed status bar message */
     if (gameStatus === "won" && winner) {
       return `Player ${winner} wins! 🎉`;
@@ -86,16 +84,15 @@ const TicTacToe: React.FC = () => {
   }
 
   // Styling using inline and CSS variables for light theme & provided colors
-  // You may add className override in App.css for better customization
-  const colorVars: React.CSSProperties = {
+  const colorVars = {
     "--ttt-primary": "#ffffff",
     "--ttt-secondary": "#000000",
     "--ttt-accent": "#2196f3",
     "--ttt-cell-size": "80px"
-  } as React.CSSProperties;
+  };
 
   // Board cell renderer
-  function renderCell(idx: number): JSX.Element {
+  function renderCell(idx) {
     return (
       <button
         key={idx}
